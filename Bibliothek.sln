@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{91CE1E71
 	ProjectSection(SolutionItems) = preProject
 		build.cmd = build.cmd
 		build_script.fsx = build_script.fsx
+		template.nuspec = template.nuspec
 	EndProjectSection
 EndProject
 Global

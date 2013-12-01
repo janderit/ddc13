@@ -30,3 +30,5 @@ _ReSharper*/
 packages/*
 tools/FAKE/*
 build/*
+deploy/*
+temp_nuget/*
