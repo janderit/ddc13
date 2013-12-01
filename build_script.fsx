@@ -11,7 +11,7 @@ let version = sprintf "%s.%s-dev" product_version build_number
 
 let buildDir="./build"
 
-let nunitPath = ProgramFilesX86 @@ "nunit 2.6.3" @@ "bin" 
+let nunitSearchPaths = [ProgramFilesX86 @@ "nunit 2.6.3" @@ "bin"; ProgramFilesX86 @@ "nunit 2.6.1" @@ "bin"; ProgramFilesX86 @@ "nunit 2.6.2" @@ "bin"]
 
 RestorePackages()
 
@@ -19,6 +19,9 @@ RestorePackages()
 // -----------------------------------------
 
 trace ("Building "+version+"...")
+
+let private nunit_console_in_path path = System.IO.File.Exists <| path @@ "nunit-console.exe"
+let nunitPath = nunitSearchPaths |> Seq.tryFind nunit_console_in_path
 
 // Helpers
 
@@ -37,9 +40,14 @@ Target "BuildDebug" ( fun _ ->
 )
 
 Target "Test" ( fun _ ->
+   
+  let toolpath = match nunitPath with
+                 | None -> failwith "Nunit-console.exe not found on nunitSearchPaths"
+                 | Some(path) -> path
+
   let configuration = fun p -> { p with
                                    OutputFile = buildDir @@ "TestResults.xml"
-                                   ToolPath = nunitPath
+                                   ToolPath = toolpath
                                    DisableShadowCopy = true
                                }
   !! (buildDir @@ "*.dll") |> NUnit configuration
