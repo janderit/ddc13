@@ -5,6 +5,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bibliothek", "Bibliothek\Bi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliothekSpecs", "BibliothekSpecs\BibliothekSpecs.csproj", "{D1199231-5A8E-4DC6-864B-8B0A56DDACC1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{91CE1E71-2B0B-40B2-9F3E-4E32119E04F3}"
+	ProjectSection(SolutionItems) = preProject
+		build.cmd = build.cmd
+		build_script.fsx = build_script.fsx
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
