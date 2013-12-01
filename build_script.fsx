@@ -5,7 +5,9 @@ open Fake
 // Config
 
 let product_version = "0.0"
-let build_number = "00000"
+let build_number = match buildServer with
+                   | Jenkins -> jenkinsBuildNumber.PadLeft(5, '0')
+                   | _ -> "00000"
 
 let version = sprintf "%s.%s-dev" product_version build_number
 
