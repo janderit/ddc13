@@ -1,4 +1,5 @@
 #r @"tools/FAKE/tools/FakeLib.dll"
+#r @"tools/nugettool.dll"
 
 open Fake
 
@@ -37,6 +38,7 @@ let nunitPath = nunitSearchPaths |> Seq.tryFind nunit_console_in_path
 // Helpers
 
 let empty () = ()  // c#: ()=>{}
+let getdependencies projectfile = NugetTool.Dependencies.Find projectfile |> Seq.map (fun dep -> dep.Id, ("["+dep.Version+"]")) |> Seq.toList
 
 // Targets
 
@@ -73,6 +75,9 @@ Target "Nuget" ( fun _ ->
     CreateDir net45
     CopyFiles net45 [buildDir @@ project+".dll"]
 
+    let deps = getdependencies project
+    trace <| sprintf "%A" deps
+
     NuGet (fun p -> 
         {p with
             Authors = authors
@@ -85,6 +90,7 @@ Target "Nuget" ( fun _ ->
             Version = version
             Publish = false
             Tags = project_tags
+            Dependencies = deps
              }) 
             "template.nuspec"    
 ) 
