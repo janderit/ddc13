@@ -13,6 +13,8 @@ let buildDir="./build"
 
 let nunitPath = ProgramFilesX86 @@ "nunit 2.6.3" @@ "bin" 
 
+RestorePackages()
+
 
 // -----------------------------------------
 
