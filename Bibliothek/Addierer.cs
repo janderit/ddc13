@@ -12,5 +12,22 @@ namespace Bibliothek
         {
             return a + b;
         }
+
+        public string AddiereJson(int a, int b)
+        {
+            fastJSON.JSON.Instance.Parameters.UseExtensions = false;
+            return fastJSON.JSON.Instance.ToJSON(new Summe(Addiere(a, b)));
+        }
     }
+
+    public struct Summe
+    {
+        public readonly int Ergebnis;
+
+        public Summe(int ergebnis)
+        {
+            Ergebnis = ergebnis;
+        }
+    }
+
 }
