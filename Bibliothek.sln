@@ -1,7 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bibliothek", "Bibliothek\Bibliothek.csproj", "{C586C8B2-94D5-4B08-9181-AB8FCB675FD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliothekSpecs", "BibliothekSpecs\BibliothekSpecs.csproj", "{D1199231-5A8E-4DC6-864B-8B0A56DDACC1}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C586C8B2-94D5-4B08-9181-AB8FCB675FD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C586C8B2-94D5-4B08-9181-AB8FCB675FD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C586C8B2-94D5-4B08-9181-AB8FCB675FD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C586C8B2-94D5-4B08-9181-AB8FCB675FD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1199231-5A8E-4DC6-864B-8B0A56DDACC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1199231-5A8E-4DC6-864B-8B0A56DDACC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1199231-5A8E-4DC6-864B-8B0A56DDACC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1199231-5A8E-4DC6-864B-8B0A56DDACC1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
